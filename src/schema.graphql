@@ -1,0 +1,29 @@
+type Product {
+  sku: String!
+  name: String!
+}
+type Book {
+  sku: String!
+  title: String!
+  product: [Product!]! @relationship(type: "IS_A", direction: OUT)
+  releaseYear: Int
+  price: Float!
+  genres: [Genre!]! @relationship(type: "IN_GENRE", direction: OUT)
+  similar(limit: Int = 6): [Book]
+    @cypher(
+      statement: "MATCH (this)-[*1..3]-(other:Book) WITH other, COUNT(*) AS rating RETURN other ORDER BY rating DESC LIMIT toInteger($limit)"
+      columnName: "other"
+    )
+}
+type Genre {
+  name: String!
+  products: [Product!]! @relationship(type: "IN_GENRE", direction: IN)
+}
+
+type Query {
+  search(query: String!): [Book]
+    @cypher(
+      statement: "CALL db.index.fulltext.queryNodes('bookTextIndex), $query + '~') YIELD node RETURN node"
+      columnName: "node"
+    )
+}

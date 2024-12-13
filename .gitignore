@@ -1,0 +1,6 @@
+*.tar
+node_modules/
+dist/
+*.env
+!example.env
+compose-dev.yaml

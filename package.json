@@ -1,0 +1,31 @@
+{
+	"name": "rel-db-course-project",
+	"version": "1.0.0",
+	"description": "A poor mans guide to contribute, test and deploy a graphQL server connected to a Neo4j database.",
+	"main": "dist/index.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1",
+		"build": "tsc",
+		"start": "node --env-file=docker.env dist/index.js",
+		"dev": "node-dev --env-file=local.env src/index.ts",
+		"dev-remote": "node-dev --env-file=remote.env src/index.ts",
+		"watch": "tsc -w"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"dependencies": {
+		"@neo4j/graphql": "^5.3.5",
+		"fastify": "^4.27.0",
+		"graphql": "^16.8.1",
+		"mercurius": "^14.1.0",
+		"neo4j-driver": "^5.20.0"
+	},
+	"devDependencies": {
+		"@types/node": "^20.11.1",
+		"node-dev": "^8.0.0",
+		"nodemon": "^3.1.0",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.4.5"
+	}
+}

@@ -1,0 +1,17 @@
+{
+  "include": ["src/**/*.ts", "test/**/*.ts", "jest.config.ts", "seed/**/*.ts"],
+  "exclude": ["node_modules"],
+  "files": ["src/@types/graphql.d.ts"],
+  "compilerOptions": {
+    "typeRoots": ["node_modules/@types", "src/@types"],
+    "target": "es2022",
+    "module": "commonjs",
+    "outDir": "./dist",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "resolveJsonModule": true
+  }
+}

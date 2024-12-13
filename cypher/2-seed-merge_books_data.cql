@@ -1,0 +1,101 @@
+// Genres
+MERGE (Drama:Genre { name: "Drama" })
+MERGE (HistoricalFiction:Genre { name: "Historical Fiction" })
+MERGE (Romance:Genre { name: "Romance" })
+MERGE (Dystopian:Genre { name: "Dystopian" })
+MERGE (SciFi:Genre { name: "Sci-Fi" })
+MERGE (Fantasy:Genre { name: "Fantasy" })
+MERGE (Mystery:Genre { name: "Mystery" })
+MERGE (Adventure:Genre { name: "Adventure" })
+
+// Languages
+MERGE (english:Language { name: "English" })
+
+// Formats
+MERGE (hardcover:Format { name: "Hardcover" })
+
+// Authors
+MERGE (harperLee:Person { name: "Harper Lee" })
+MERGE (janeAusten:Person { name: "Jane Austen" })
+MERGE (georgeOrwell:Person { name: "George Orwell" })
+MERGE (jrrTolkien:Person { name: "J.R.R. Tolkien" })
+MERGE (agathaChristie:Person { name: "Agatha Christie" })
+MERGE (leoTolstoy:Person { name: "Leo Tolstoy" })
+MERGE (markTwain:Person { name: "Mark Twain" })
+MERGE (maryShelley:Person { name: "Mary Shelley" })
+MERGE (hGWell:Person { name: "H.G. Wells" })
+MERGE (fScottFitzgerald:Person { name: "F. Scott Fitzgerald" })
+MERGE (bramStoker:Person { name: "Bram Stoker" })
+
+// Books (Books)
+MERGE (toKillAMockingbird:Book { sku: "toKillAMockingbird" })
+MERGE (toKillAMockingbird)-[:ORIGINAL { title: "To Kill a Mockingbird" }]->(english)
+MERGE (toKillAMockingbird)-[:EXISTS_IN]->(hardcover)
+MERGE (toKillAMockingbird)-[:BELONGS_TO]->(Drama)
+MERGE (toKillAMockingbird)-[:WRITTEN_BY]->(harperLee)
+
+MERGE (prideAndPrejudice:Book { sku: "prideAndPrejudice" })
+MERGE (prideAndPrejudice)-[:ORIGINAL { title: "Pride and Prejudice" }]->(english)
+MERGE (prideAndPrejudice)-[:EXISTS_IN]->(hardcover)
+MERGE (prideAndPrejudice)-[:BELONGS_TO]->(Romance)
+MERGE (prideAndPrejudice)-[:WRITTEN_BY]->(janeAusten)
+
+MERGE (nineteenEightyFour:Book { sku: "nineteenEightyFour" })
+MERGE (nineteenEightyFour)-[:ORIGINAL { title: "1984" }]->(english)
+MERGE (nineteenEightyFour)-[:EXISTS_IN]->(hardcover)
+MERGE (nineteenEightyFour)-[:BELONGS_TO]->(Dystopian)
+MERGE (nineteenEightyFour)-[:WRITTEN_BY]->(georgeOrwell)
+
+MERGE (theHobbit:Book { sku: "theHobbit" })
+MERGE (theHobbit)-[:ORIGINAL { title: "The Hobbit" }]->(english)
+MERGE (theHobbit)-[:EXISTS_IN]->(hardcover)
+MERGE (theHobbit)-[:BELONGS_TO]->(Fantasy)
+MERGE (theHobbit)-[:WRITTEN_BY]->(jrrTolkien)
+
+MERGE (dracula:Book { sku: "dracula" })
+MERGE (dracula)-[:ORIGINAL { title: "Dracula" }]->(english)
+MERGE (dracula)-[:EXISTS_IN]->(hardcover)
+MERGE (dracula)-[:BELONGS_TO]->(Fantasy)
+MERGE (dracula)-[:WRITTEN_BY]->(jrrTolkien)
+
+MERGE (murderOnTheOrientExpress:Book { sku: "murderOnTheOrientExpress" })
+MERGE (murderOnTheOrientExpress)-[:ORIGINAL { title: "Murder on the Orient Express" }]->(english)
+MERGE (murderOnTheOrientExpress)-[:EXISTS_IN]->(hardcover)
+MERGE (murderOnTheOrientExpress)-[:BELONGS_TO]->(Mystery)
+MERGE (murderOnTheOrientExpress)-[:WRITTEN_BY]->(agathaChristie)
+
+MERGE (warAndPeace:Book { sku: "warAndPeace" })
+MERGE (warAndPeace)-[:ORIGINAL { title: "War and Peace" }]->(english)
+MERGE (warAndPeace)-[:EXISTS_IN]->(hardcover)
+MERGE (warAndPeace)-[:BELONGS_TO]->(HistoricalFiction)
+MERGE (warAndPeace)-[:WRITTEN_BY]->(leoTolstoy)
+
+MERGE (huckleberryFinn:Book { sku: "huckleberryFinn" })
+MERGE (huckleberryFinn)-[:ORIGINAL { title: "The Adventures of Huckleberry Finn" }]->(english)
+MERGE (huckleberryFinn)-[:EXISTS_IN]->(hardcover)
+MERGE (huckleberryFinn)-[:BELONGS_TO]->(Adventure)
+MERGE (huckleberryFinn)-[:WRITTEN_BY]->(markTwain)
+
+MERGE (frankenstein:Book { sku: "frankenstein" })
+MERGE (frankenstein)-[:ORIGINAL { title: "Frankenstein" }]->(english)
+MERGE (frankenstein)-[:EXISTS_IN]->(hardcover)
+MERGE (frankenstein)-[:BELONGS_TO]->(SciFi)
+MERGE (frankenstein)-[:WRITTEN_BY]->(maryShelley)
+
+MERGE (theTimeMachine:Book { sku: "theTimeMachine" })
+MERGE (theTimeMachine)-[:ORIGINAL { title: "The Time Machine" }]->(english)
+MERGE (theTimeMachine)-[:EXISTS_IN]->(hardcover)
+MERGE (theTimeMachine)-[:BELONGS_TO]->(SciFi)
+MERGE (theTimeMachine)-[:WRITTEN_BY]->(hGWell)
+
+MERGE (gatsby:Book { sku: "gatsby" })
+MERGE (gatsby)-[:ORIGINAL { title: "The Great Gatsby" }]->(english)
+MERGE (gatsby)-[:EXISTS_IN]->(hardcover)
+MERGE (gatsby)-[:BELONGS_TO]->(Drama)
+MERGE (gatsby)-[:WRITTEN_BY]->(fScottFitzgerald)
+
+MERGE (braveNewWorld:Book { sku: "braveNewWorld" })
+MERGE (braveNewWorld)-[:ORIGINAL { title: "Brave New World" }]->(english)
+MERGE (braveNewWorld)-[:EXISTS_IN]->(hardcover)
+MERGE (braveNewWorld)-[:BELONGS_TO]->(Dystopian)
+MERGE (braveNewWorld)-[:WRITTEN_BY]->(hGWell)
